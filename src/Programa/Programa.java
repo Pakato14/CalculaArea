@@ -1,5 +1,6 @@
 package Programa;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import FormasGeometricas.*;
 
@@ -34,20 +35,31 @@ public class Programa {
 		//usar um switch case para informar os valores  e calcular área
 		switch(menu) {
 		case '1':
+			try {
 			System.out.println("Insira o valor do raio do círculo: ");
 			n1 = inputData.nextInt();			
 			AreaCalculavel c = new Circulo(n1);
 			System.out.println("A área do circulo é: "+c.calculaArea());
 			System.out.println("\n");
+			}catch (InputMismatchException erro1) {
+				System.err.println("Não é permitido inserir letras, informe apenas números inteiros!");
+				inputData.nextLine();
+			}
 			break;
 		case '2':
+			try {
 			System.out.println("Insira o valor do lado do quadrado: ");
 			n1 = inputData.nextInt();
 			AreaCalculavel q = new Quadrado(n1);
 			System.out.println("A área do quadrado é: "+q.calculaArea());
 			System.out.println("\n");
+			}catch (InputMismatchException erro1) {
+				System.err.println("Não é permitido inserir letras, informe apenas números inteiros!");
+				inputData.nextLine();
+			}
 			break;
 		case '3':
+			try {
 			System.out.println("Insira um lado do Retângulo: ");
 			n1 = inputData.nextInt();
 			System.out.println("Insira outro lado do Retângulo: ");
@@ -55,8 +67,13 @@ public class Programa {
 			AreaCalculavel r = new Retangulo(n1,n2);
 			System.out.println("A área do retângulo é: "+r.calculaArea());
 			System.out.println("\n");
+			}catch (InputMismatchException erro1) {
+				System.err.println("Não é permitido inserir letras, informe apenas números inteiros!");
+				inputData.nextLine();
+			}
 			break;
 		case '4':
+			try {
 			System.out.println("Insira a base menor do trapézio: ");
 			n1 = inputData.nextInt();
 			System.out.println("Insira a base maior do trapézio: ");
@@ -66,8 +83,13 @@ public class Programa {
 			AreaCalculavel tp = new Trapezio(n1, n2, n3);
 			System.out.println("A área do trapézio é: "+tp.calculaArea());
 			System.out.println("\n");
+			}catch (InputMismatchException erro1) {
+				System.err.println("Não é permitido inserir letras, informe apenas números inteiros!");
+				inputData.nextLine();
+			}
 			break;
 		case '5':
+			try {
 			System.out.println("Insira um lado do Triangulo: ");
 			n1 = inputData.nextInt();
 			System.out.println("Insira outro lado do Triangulo: ");
@@ -84,6 +106,10 @@ public class Programa {
 			}else {
 				System.out.println("Não é possível construir um triangulo com os lados informados!");
 				System.out.println("\n");
+			}
+			}catch (InputMismatchException erro1) {
+				System.err.println("Não é permitido inserir letras, informe apenas números inteiros!");
+				inputData.nextLine();
 			}
 			break;
 						
